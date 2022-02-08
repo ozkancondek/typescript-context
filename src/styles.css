@@ -10,7 +10,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #444;
-  background: #f5f6f7;
+  background-image: url("https://images.unsplash.com/photo-1640622842223-e1e39f4bf627?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80");
+  background-repeat: no-repeat;
+
+  background-size: cover;
 }
 
 .App {
@@ -55,8 +58,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: #fff;
+  background: rgb(228, 228, 228);
   margin-bottom: 1rem;
+  border: 2px solid grey;
+  opacity: 0.8;
+  border-radius: 5px;
 }
 
 .Form > div {
@@ -91,4 +97,12 @@ body {
 
 .hide-button {
   display: none;
+}
+
+.list-todo {
+  border: 2px solid grey;
+  padding: 1rem;
+  border-radius: 5px;
+  background: rgb(228, 228, 228);
+  opacity: 0.8;
 }

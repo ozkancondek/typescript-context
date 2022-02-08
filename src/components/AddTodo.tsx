@@ -1,8 +1,9 @@
 import * as React from "react";
-import { TodoContext } from "../context/todoContext";
+import { TodoContext, useTodo } from "../context/todoContext";
 
 const AddTodo: React.FC = () => {
-  const { saveTodo } = React.useContext(TodoContext) as ContextType;
+  //take saveTodo from context
+  const { saveTodo } = useTodo();
   const [formData, setFormData] = React.useState<ITodo | {}>();
 
   const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -15,6 +16,9 @@ const AddTodo: React.FC = () => {
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo | any) => {
     e.preventDefault();
     saveTodo(formData);
+    Array.from(e.currentTarget.getElementsByTagName("input")).map(
+      (i) => (i.value = "")
+    );
   };
 
   return (
