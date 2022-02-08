@@ -57,7 +57,8 @@ const TodoProvider: React.FC<React.ReactNode> = ({ children }) => {
 
 //context custom hook
 export const useTodo = () => {
-  const todoData = React.useContext(TodoContext) as ContextType;
+  //const todoData = React.useContext(TodoContext) as ContextType;
+  const todoData = React.useContext(TodoContext);
   if (!todoData) {
     throw new Error("useTodo need to used in TodoProvider");
   }

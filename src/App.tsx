@@ -9,7 +9,7 @@ export default function App() {
   return (
     <TodoProvider>
       <main className="App">
-        <h1>My Todos</h1>
+        <h1>TypeScript-TodoApp</h1>
         <AddTodo />
         <Todos />
       </main>

@@ -14,3 +14,6 @@ type ContextType = {
   saveTodo: (todo: ITodo) => void;
   updateTodo: (id: number) => void;
 };
+
+type ContextType2 = Partial<ContextType>;
+type ContextType3 = Omit<ContextType, "todos">;

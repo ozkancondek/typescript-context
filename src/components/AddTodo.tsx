@@ -1,7 +1,9 @@
 import * as React from "react";
+import { useRef } from "react";
 import { TodoContext, useTodo } from "../context/todoContext";
 
 const AddTodo: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   //take saveTodo from context
   const { saveTodo } = useTodo();
   const [formData, setFormData] = React.useState<ITodo | {}>();
@@ -16,13 +18,18 @@ const AddTodo: React.FC = () => {
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo | any) => {
     e.preventDefault();
     saveTodo(formData);
-    Array.from(e.currentTarget.getElementsByTagName("input")).map(
-      (i) => (i.value = "")
-    );
+    formRef?.current?.reset();
+
+    /*   Array.from(e.currentTarget.getElementsByTagName("input")).map(
+      (i) => (i.value = "") */
   };
 
   return (
-    <form className="Form" onSubmit={(e) => handleSaveTodo(e, formData)}>
+    <form
+      ref={formRef}
+      className="Form"
+      onSubmit={(e) => handleSaveTodo(e, formData)}
+    >
       <div>
         <div>
           <label htmlFor="name">Title</label>
